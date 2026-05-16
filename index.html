@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BOMBOCLAT CEMO resmi eğlence galerisi." />
+  <title>BOMBOCLAT CEMO</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="loader" class="loader">
+    <div class="loader-logo">BOMBOCLAT <span>CEMO</span></div>
+    <div class="loader-bar"><i></i></div>
+    <p>Sanayi modu hazırlanıyor...</p>
+  </div>
+  <div class="noise"></div>
+  <canvas id="matrixCanvas" class="matrix-canvas"></canvas>
+  <div id="cursorGlow" class="cursor-glow"></div>
+
+  <header class="topbar">
+    <a class="logo" href="#home">BOMBOCLAT <span>CEMO</span></a>
+    <nav>
+      <a href="#gallery">Galeri</a>
+      <a href="#memes">Meme Arşivi</a>
+      <a href="#random">Random</a>
+      <a href="#upload">Foto Ekle</a>
+      <a href="#extras">Ekstralar</a>
+      <a href="#about">Hakkında</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">SANAYİNİN EFSANE KARAKTERİ</p>
+        <h1>BOMBOCLAT<br><span>CEMO</span></h1>
+        <p class="lead">Sarımsak, sanayi, oto parça ve sınırsız Cemo enerjisi tek sayfada toplandı.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#gallery">Fotoğraflara Bak</a>
+          <button class="btn ghost" id="heroRandom">Random Cemo</button>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <img id="heroImage" src="assets/cemo-01.png" alt="Bomboclat Cemo ana görseli" />
+        <div class="hero-caption">
+          <strong id="heroTitle">Sarımsak Kralı</strong>
+          <span>18 fotoğraf eklendi</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="ticker">
+      <div>
+        <span>BOMBOCLAT CEMO</span>
+        <span>SANAYİ MODU</span>
+        <span>SARIMSAK LEVEL MAX</span>
+        <span>GARAGE EDITION</span>
+        <span>BOMBOCLAT CEMO</span>
+      </div>
+    </section>
+
+    <section id="gallery" class="section">
+      <div class="section-head">
+        <p class="eyebrow">TÜM FOTOĞRAFLAR</p>
+        <h2>Cemo Gallery</h2>
+      </div>
+      <input class="search" id="searchInput" placeholder="Galeride ara: sarımsak, sanayi, gözlük...">
+      <div class="gallery" id="galleryGrid"></div>
+    </section>
+
+    <section id="random" class="random-section">
+      <div class="random-box">
+        <p class="eyebrow">ŞANSINI DENE</p>
+        <h2>Random Cemo Modu</h2>
+        <p>Butona basınca galeriden rastgele bir Cemo karesi seçilir.</p>
+        <button class="btn primary" id="randomBtn">Random Cemo Getir</button>
+      </div>
+      <div class="random-preview">
+        <img id="randomImage" src="assets/cemo-02.jpg" alt="Random Cemo görseli" />
+        <strong id="randomTitle">Aynadan Bakış</strong>
+      </div>
+    </section>
+
+
+
+
+    <section id="memes" class="meme-section">
+      <div class="section-head">
+        <p class="eyebrow">TÜRK İNTERNET MÜZESİ</p>
+        <h2>Meme / GIF Arşivi</h2>
+        <p class="section-desc">Kurtlar Vadisi, Tofaş RP, Bomboclat ve sanayi evreninden karışık arşiv.</p>
+      </div>
+
+      <div class="meme-controls">
+        <input class="search" id="memeSearch" placeholder="Meme ara: polat, tofaş, bomboclat...">
+        <button class="btn primary" id="randomMemeBtn">Rastgele Meme Aç</button>
+      </div>
+
+      <div class="category-tabs">
+        <button data-filter="all" class="active">Hepsi</button>
+        <button data-filter="GIF">GIF</button>
+        <button data-filter="Video">Video</button>
+        <button data-filter="Kurtlar Vadisi">Kurtlar Vadisi</button>
+        <button data-filter="Tofaş / Doblo">Tofaş / Doblo</button>
+        <button data-filter="Türk İnternet">Türk İnternet</button>
+        <button data-filter="Mami">Mami</button>
+        <button data-filter="Meme">Meme</button>
+      </div>
+
+      <div class="meme-grid" id="memeGrid"></div>
+    </section>
+
+    <section id="extras" class="extras-section">
+      <div class="section-head">
+        <p class="eyebrow">MEGA ÖZELLİKLER</p>
+        <h2>Cemo Kontrol Merkezi</h2>
+      </div>
+      <div class="extras-grid">
+        <article class="extra-card daily-card">
+          <p class="eyebrow">GÜNÜN CEMOSU</p>
+          <img id="dailyImage" src="" alt="Günün Cemo fotoğrafı">
+          <strong id="dailyTitle"></strong>
+        </article>
+        <article class="extra-card">
+          <p class="eyebrow">CEMO SÖZÜ</p>
+          <h3 id="quoteText">Yükleniyor...</h3>
+          <button class="btn primary" id="quoteBtn">Yeni Söz Getir</button>
+        </article>
+        <article class="extra-card stat-card">
+          <p class="eyebrow">ZİYARETÇİ PANELİ</p>
+          <h3><span id="visitCount">0</span>. girişin</h3>
+          <p>Bu sayaç kullanıcının kendi cihazında tutulur.</p>
+        </article>
+        <article class="extra-card">
+          <p class="eyebrow">SLAYT MODU</p>
+          <h3>Fotoğraflar otomatik aksın</h3>
+          <button class="btn primary" id="slideshowBtn">Slayt Başlat</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="favorites-section">
+      <div class="section-head">
+        <p class="eyebrow">FAVORİLER</p>
+        <h2>Beğendiğin Cemo Kareleri</h2>
+      </div>
+      <div id="favoritesGrid" class="gallery"></div>
+    </section>
+
+    <section id="upload" class="upload-section">
+      <div class="upload-panel">
+        <p class="eyebrow">KULLANICI FOTOĞRAF EKLEME</p>
+        <h2>Fotoğrafını Siteye Ekle</h2>
+        <p>GitHub Pages statik olduğu için bu sistem şimdilik fotoğrafı kullanıcının kendi tarayıcısında saklar. Gerçekten herkesin göreceği fotoğraf yükleme için Firebase veya Supabase gerekir.</p>
+
+        <label class="upload-drop" for="photoInput">
+          <span>Fotoğraf seç veya sürükle</span>
+          <small>JPG, PNG, WEBP desteklenir</small>
+        </label>
+        <input id="photoInput" type="file" accept="image/*" multiple hidden />
+
+        <div class="upload-actions">
+          <button class="btn primary" id="clearUploads">Eklenenleri Temizle</button>
+          <button class="btn ghost" id="downloadGallery">Galeri JSON İndir</button>
+        </div>
+      </div>
+
+      <div class="upload-preview">
+        <h3>Kullanıcı Eklenenleri</h3>
+        <div id="userGallery" class="mini-gallery"></div>
+      </div>
+    </section>
+
+    <section class="features">
+      <article><strong>⚡</strong><span>Random Cemo modu</span></article>
+      <article><strong>🖼️</strong><span>Tam ekran fotoğraf izleme</span></article>
+      <article><strong>📱</strong><span>Mobil uyumlu tasarım</span></article>
+      <article><strong>📤</strong><span>Kullanıcı fotoğraf ekleme</span></article>
+      <article><strong>🔎</strong><span>Galeri arama alanı</span></article>
+      <article><strong>🧰</strong><span>Sanayi temalı özel arayüz</span></article>
+    </section>
+
+    <section id="about" class="about">
+      <h2>BOMBOCLAT CEMO</h2>
+      <p>Bu site GitHub Pages için hazırlandı. Dosyaları repoya at, Pages kısmından yayınla, site herkese açık olur.</p>
+    </section>
+  </main>
+
+
+  <div class="music-player" id="musicPlayer">
+    <div class="disc">KV</div>
+    <div>
+      <strong>Kurtlar Vadisi Modu</strong>
+      <span id="musicStatus">Başlatmak için tıkla</span>
+    </div>
+    <button id="musicToggle">▶</button>
+    <audio id="siteMusic" src="assets/music.mp3" autoplay loop preload="auto"></audio>
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="close" id="closeLightbox">×</button>
+    <img id="lightboxImage" src="" alt="Büyük Cemo görseli" />
+    <p id="lightboxTitle"></p>
+  </div>
+
+  <script>
+    const images = [
+  { src: "assets/cemo-01.png", title: "Sarımsak Kralı" },
+  { src: "assets/cemo-02.jpg", title: "Aynadan Bakış" },
+  { src: "assets/cemo-03.jpg", title: "Sanayi Alevi" },
+  { src: "assets/cemo-04.jpg", title: "Tamir Modu" },
+  { src: "assets/cemo-05.jpg", title: "Camdan Gülüş" },
+  { src: "assets/cemo-06.jpg", title: "Usta Pozu" },
+  { src: "assets/cemo-07.jpg", title: "Sanayi Portresi" },
+  { src: "assets/cemo-08.jpg", title: "Yakın Plan Efsane" },
+  { src: "assets/cemo-09.jpg", title: "Parça Deposu" },
+  { src: "assets/cemo-10.jpg", title: "Atölye Enerjisi" },
+  { src: "assets/cemo-11.jpg", title: "Gözlüklü Boss" },
+  { src: "assets/cemo-12.jpg", title: "Kahkaha Anı" },
+  { src: "assets/cemo-13.jpg", title: "Gizli Bölge" },
+  { src: "assets/cemo-14.jpg", title: "Derin Depo" },
+  { src: "assets/cemo-15.jpg", title: "Mola Masası" },
+  { src: "assets/cemo-16.jpg", title: "Garaj Toplantısı" },
+  { src: "assets/cemo-17.jpg", title: "Gece Selfie" },
+  { src: "assets/cemo-18.jpg", title: "Sarımsak Finali" }
+    ];
+  </script>
+  <script src="meme-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
